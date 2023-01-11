@@ -9,11 +9,11 @@ SUM equ -MAGIC
 section .text
 align 4; boot header needs to be aligned tp a 4 byte boundry
 dd MAGIC ; define 
-;dd equ
+dd FLAGS
 dd SUM
 
 
-CSTACK_SIZE equ 30000 ; Stack for C (epoc)
+CSTACK_SIZE equ 80000 ; Stack for C (epoc)
 
 entry:
 mov esp, CSTACK_SIZE ; move stack size to esp register
@@ -25,3 +25,5 @@ jmp entry
 
 section .bss
 align 16
+cstack:
+resb CSTACK_SIZE
