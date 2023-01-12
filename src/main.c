@@ -5,6 +5,8 @@
     * Filesystem support (Obease filesystem)
     * Goofy ahh excecutable support
 */
+// extern
+extern switchToRealMode();
 // Basic utils
 int strlen(char *str);
 void clearScreen();
@@ -20,6 +22,8 @@ int kmain(){
   clearScreen();
   print("T54 Starting",&terminalY);
   print("Switching to real mode",&terminalY);
+  switchToRealMode();
+  print("Finished.",&terminalY);
   while(1){}
 }
 // Basic utils

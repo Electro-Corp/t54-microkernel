@@ -4,11 +4,12 @@ rm *
 ls
 cd ..
 nasm -f elf32 src/boot.asm -o out/boot.o
+nasm -f elf32 src/utils.asm -o out/util.o
 echo Compiling C Source
 # Compile C Source/
 gcc -c src/main.c -m32 -nostdinc -fno-builtin -fno-stack-protector -nostartfiles  -W -o out/main.o
 echo Linking
-ld -T src/link.ld -melf_i386 out/main.o out/boot.o -o boot/kernel
+ld -T src/link.ld -melf_i386 out/main.o out/boot.o out/util.o -o boot/kernel
 
 echo Creating ISO
 mkisofs -R                                   \
