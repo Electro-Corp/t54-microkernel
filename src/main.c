@@ -7,6 +7,8 @@
 */
 // extern
 extern switchToRealMode();
+extern switchVideoMode();
+extern readValues();
 // Basic utils
 int strlen(char *str);
 void clearScreen();
@@ -21,9 +23,12 @@ int kmain(){
   // Baisc kernel init stuff
   clearScreen();
   print("T54 Starting",&terminalY);
+  terminalY++;
   print("Switching to real mode",&terminalY);
+  terminalY++;
   switchToRealMode();
   print("Finished.",&terminalY);
+  terminalY++;
   while(1){}
 }
 // Basic utils
@@ -44,6 +49,7 @@ void charAt(char c, int x, int y){
   fb[position] = c;
 }
 void print(char *string,int* y){
+ // clearScreen();
   for(int i = 0; i < strlen(string); i++){
     charAt(string[i],i,*y);
   }

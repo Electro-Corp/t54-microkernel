@@ -23,4 +23,4 @@ mkisofs -R                                   \
                 -o t54.iso                       \
                 boot
 #qemu-system-x86_64 -cdrom t54.iso
-qemu-system-x86_64 -kernel boot/kernel -machine type=pc-i440fx-3.1
+qemu-system-x86_64 -kernel boot/kernel -machine type=pc-i440fx-3.1 -hdd test.img
